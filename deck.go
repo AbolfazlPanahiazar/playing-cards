@@ -26,3 +26,8 @@ func newDeck() deck {
 
 	return cards
 }
+
+// deal function the slices a deck into two deck of cards
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
