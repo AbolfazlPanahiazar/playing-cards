@@ -2,6 +2,6 @@ package main
 
 
 func main() {
-	cards := deck{"hello", "world"}
+	cards := newDeck()
 	cards.print()
 }
