@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"io/ioutil"
+	"os"
+	"strings"
 )
 
 type deck []string
@@ -11,7 +12,7 @@ type deck []string
 // print receive function of deck type
 func (d deck) print() {
 	for i, card := range d {
-		fmt.Println(i + 1, card)
+		fmt.Println(i+1, card)
 	}
 }
 
@@ -24,7 +25,7 @@ func newDeck() deck {
 
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
-			cards = append(cards, value + " of " + suit)
+			cards = append(cards, value+" of "+suit)
 		}
 	}
 
@@ -44,4 +45,15 @@ func (d deck) toString() string {
 // save into file method of deck
 func (d deck) saveToFile(fileName string) error {
 	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+}
+
+// read and create a new deck from file
+func newDeckFromFile(filename string) deck {
+	bs, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 }
