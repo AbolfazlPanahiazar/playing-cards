@@ -23,8 +23,10 @@ func main() {
 		},
 	}
 
-	jimPointer := &jim
-	jimPointer.updateFirstName("Abol")
+	// jimPointer := &jim
+	// jimPointer.updateFirstName("Abol")
+	// or
+	(&jim).updateFirstName("Abolf")
 	jim.print()
 }
 
@@ -33,5 +35,13 @@ func (p person) print() {
 }
 
 func (p *person) updateFirstName(fn string) {
-	(*p).firstName = fn
+	// (*p).firstName = fn
+	// or
+	p.firstName = fn
 }
+
+// Value types
+// int, float, string, bool, struct
+
+// Refrence types (don't worry about pointers with these)
+// slides, maps, channels, pointers, functions
