@@ -2,46 +2,17 @@ package main
 
 import "fmt"
 
-type contactInfo struct {
-	email   string
-	zipCode int
-}
-
-type person struct {
-	firstName string
-	lastName  string
-	contactInfo
-}
-
 func main() {
-	jim := person{
-		firstName: "Abolfazl",
-		lastName:  "Panahiazar",
-		contactInfo: contactInfo{
-			email:   "abolfazlpanahiazar@gmail.com",
-			zipCode: 123456,
-		},
+	// var colors map[string]string
+	// or
+	// colors := make(map[string]string)
+	// or
+	colors := map[string]string{
+		"white": "#FFFFFF",
+		"red":   "#FF0000",
 	}
 
-	// jimPointer := &jim
-	// jimPointer.updateFirstName("Abol")
-	// or
-	(&jim).updateFirstName("Abolf")
-	jim.print()
+	colors["blue"] = "#0000FF"
+
+	fmt.Println(colors)
 }
-
-func (p person) print() {
-	fmt.Println(p)
-}
-
-func (p *person) updateFirstName(fn string) {
-	// (*p).firstName = fn
-	// or
-	p.firstName = fn
-}
-
-// Value types
-// int, float, string, bool, struct
-
-// Refrence types (don't worry about pointers with these)
-// slides, maps, channels, pointers, functions
