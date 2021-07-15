@@ -14,5 +14,11 @@ func main() {
 
 	colors["blue"] = "#0000FF"
 
-	fmt.Println(colors)
+	printMap(colors)
+}
+
+func printMap(c map[string]string) {
+	for color, hex := range c {
+		fmt.Println(color, hex)
+	}
 }
