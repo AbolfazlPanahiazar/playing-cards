@@ -23,11 +23,9 @@ func main() {
 	}
 
 	// recieve a vlue from the channel
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 func checkLink(link string, c chan string) {
